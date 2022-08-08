@@ -8,7 +8,13 @@ export const Home = () => {
 
     const Card = styled.div`
         max-width: 400px;
-        height: 200px
+        height: 200px;
+        border-radius: 0;
+    `
+
+    const Body = styled.div`
+        overflow: auto;
+        text-align: left;
     `
     
 
@@ -21,13 +27,12 @@ export const Home = () => {
 
 
     return (
-        <div className="row m-auto">
+        <div className="row m-auto d-flex-fle-row justify-content-evenly">
                 {blogs.map((blog, index) => {
                     return(
-                        <Card className="card m-2 p-0" key={blog.id}>
-                            <div className="bg-light w-100">{blog.title}</div>
-                            <img src="https://source.unsplash.com/random/200x200?sig=1"></img>
-                            <div>{blog.body}</div>
+                        <Card className="card p-0" key={blog.id}>
+                            <div className="bg-light w-100 text-uppercase fw-bold">{blog.title}</div>
+                            <Body>{blog.body}</Body>
                         </Card>                 
                     )
                 })}
