@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 export const Home = () => {
 
     const [blogs, setBlogs] = useState([])
+    const [load, setLoad] = useState(false)
 
     const Card = styled.div`
         max-width: 400px;
@@ -44,8 +45,27 @@ export const Home = () => {
         width: 50px;
         height: 50px;
     `
+    const LandingPageTitle = styled.div`
+        position: absolute;
+        top: 35%;
+        font-size: 3rem;
+        color: white;
+        cursor: pointer;
+        animation: myAnim 1s ease 0s 1 normal forwards;
 
-    const [load, setLoad] = useState(false)
+        @keyframes myAnim {
+            0% {
+                opacity: 0;
+                transform: translateX(-250px);
+            }
+        
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    `
+
 
     useEffect(() => {
         setLoad(true)
@@ -54,8 +74,10 @@ export const Home = () => {
         .then(data => setBlogs(data))
         .finally(setTimeout(() => {
             setLoad(false)
-        }, 2000))
+        }, 1000))
     },[])
+
+    const srollTo = () => window.scrollTo(0, 950)
 
 
 
@@ -63,6 +85,10 @@ export const Home = () => {
     return (
         <div className="row mt-2 m-auto d-flex-fle-row justify-content-evenly">
 
+            {load ? '' : (
+                <LandingPageTitle onClick={srollTo}>Tovabb</LandingPageTitle>
+            )}
+            
             {load ? (
                 <LoaderDiv className="spinner-border" role="status">
                     <span className="visually-hidden">Loading...</span>
@@ -70,7 +96,7 @@ export const Home = () => {
             )
             :
             (
-                blogs.map((blog, index) => {
+                blogs.map((blog) => {
                     return(
                         <Card className="card p-0" key={blog.id}>
                             <Title>{blog.title}</Title>
