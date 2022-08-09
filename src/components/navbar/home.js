@@ -54,7 +54,7 @@ export const Home = () => {
         .then(data => setBlogs(data))
         .finally(setTimeout(() => {
             setLoad(false)
-        }, 3000))
+        }, 2000))
     },[])
 
 
