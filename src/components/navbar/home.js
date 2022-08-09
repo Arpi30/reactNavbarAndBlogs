@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components'
 
 
+
 export const Home = () => {
 
     const [blogs, setBlogs] = useState([])
@@ -27,7 +28,7 @@ export const Home = () => {
 
 
     return (
-        <div className="row m-auto d-flex-fle-row justify-content-evenly">
+        <div className="row mt-2 m-auto d-flex-fle-row justify-content-evenly">
                 {blogs.map((blog, index) => {
                     return(
                         <Card className="card p-0" key={blog.id}>
