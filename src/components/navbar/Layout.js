@@ -39,12 +39,16 @@ export const Layout = () => {
         }
     `
 
+
+
+
+
     return (
         <div>
             <Navbar className="position-absolute w-100">
                 <Ul>
                     <Li className="mx-3">
-                        <Link className="text-decoration-none text-dark fw-bold fs-4" to='/' >Home</Link>
+                        <Link  className="text-decoration-none text-dark fw-bold fs-4" to='/' >Home</Link>
                     </Li>
                     <Li className="mx-3">
                         <Link className="text-decoration-none text-dark fw-bold fs-4" to='contact' >Contanct</Link>
