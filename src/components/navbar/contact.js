@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
-
 import { ContactCard, LoaderDiv } from "../styledComponent";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons'
+
+
+
 
 export const Contact = () => {
 
@@ -27,7 +32,15 @@ export const Contact = () => {
             )
             :
             (
-                <ContactCard>Acs Arpad</ContactCard>
+                <ContactCard>
+                    <p>Acs Arpad</p>
+                    <div>
+                        <FontAwesomeIcon icon={faFacebook} />
+                        <FontAwesomeIcon icon={faGithub} className='mx-2'/>
+                        <FontAwesomeIcon icon={faInstagram} />
+                    </div>
+
+                </ContactCard>
             )}
 
 
