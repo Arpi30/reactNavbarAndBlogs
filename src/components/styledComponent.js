@@ -92,10 +92,8 @@ export  const LandingPageTitle = styled.div`
     }
 `
 export const ContactCard = styled.div`
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 30%;
     color: black;
     padding: 15px;
     width: 24rem;
@@ -106,6 +104,20 @@ export const ContactCard = styled.div`
     backdrop-filter: blur( 3.5px );
     -webkit-backdrop-filter: blur( 3.5px );
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    animation: contactSlide 1s ease 0s 1 normal forwards;
+    
+
+    @keyframes contactSlide {
+        0% {
+            opacity: 0;
+            transform: translateX(-250px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
 
 `
 export const Ul = styled.ul`
@@ -139,4 +151,4 @@ export const Li = styled.li`
     &:hover {
         transform: scale(1.05);
     }
-`
+    `

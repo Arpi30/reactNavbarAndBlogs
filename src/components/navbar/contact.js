@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ContactCard, LoaderDiv } from "../styledComponent";
+import '../contact.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons'
@@ -19,8 +20,6 @@ export const Contact = () => {
         }, 1000)
     }, [])
 
-   
-
 
 
     return (
@@ -33,11 +32,18 @@ export const Contact = () => {
             :
             (
                 <ContactCard>
-                    <p>Acs Arpad</p>
+                    <h3>Acs Arpad</h3>
                     <div>
-                        <FontAwesomeIcon icon={faFacebook} />
-                        <FontAwesomeIcon icon={faGithub} className='mx-2'/>
-                        <FontAwesomeIcon icon={faInstagram} />
+                        <a href="https://www.facebook.com/arpad.acs.7/" className="fs-2 ">
+                            <FontAwesomeIcon className="icon"  icon={faFacebook} />
+                        </a>
+                        <a href="https://github.com/Arpi30" className="mx-3 fs-2 text-dark">
+                            <FontAwesomeIcon className="icon" icon={faGithub} />
+                        </a>
+                        <a href="https://www.instagram.com/arpad.acs.7/" className="fs-2 text-dark">
+                            <FontAwesomeIcon className="icon" icon={faInstagram} />
+                        </a>
+
                     </div>
 
                 </ContactCard>
