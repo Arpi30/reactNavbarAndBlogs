@@ -9,6 +9,7 @@ export const Home = () => {
 
     const [blogs, setBlogs] = useState([])
     const [load, setLoad] = useState(false)
+    const loginProcess = JSON.parse(localStorage.getItem('loginMethodValue'))
 
     
 
@@ -29,35 +30,42 @@ export const Home = () => {
 
 
     return (
-        <div className="row mt-2 m-auto d-flex-fle-row justify-content-evenly">
-
-            {load ? '' : (
-                <LandingPageTitle onClick={srollTo}>CLICK ME</LandingPageTitle>
-            )}
-            
-            {load ? (
-                <LoaderDiv className="spinner-border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </LoaderDiv>
+        <div>
+            {loginProcess ? 
+            (
+                <div className="row mt-2 m-auto d-flex-fle-row justify-content-evenly">
+                    {load ? '' : 
+                    (
+                        <LandingPageTitle onClick={srollTo}>CLICK ME</LandingPageTitle>
+                    )}
+                    
+                    {load ? 
+                        (
+                            <LoaderDiv className="spinner-border" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </LoaderDiv>
+                        )
+                        :
+                        (
+                            blogs.map((blog) => {
+                                return(
+                                    <Card className="card p-0" key={blog.id}>
+                                        <Title>{blog.title}</Title>
+                                        <Img src="https://source.unsplash.com/random/800x400?sig=1"></Img>
+                                        <Body>{blog.body}</Body>
+                                        <Link className="text-end mx-2 text-decoration-none text-dark" to='*'>More...</Link>
+                                    </Card>                 
+                                )
+                            })
+                        )
+                    }
+                </div>
             )
             :
             (
-                blogs.map((blog) => {
-                    return(
-                        <Card className="card p-0" key={blog.id}>
-                            <Title>{blog.title}</Title>
-                            <Img src="https://source.unsplash.com/random/800x400?sig=1"></Img>
-                            <Body>{blog.body}</Body>
-                            <Link className="text-end mx-2 text-decoration-none text-dark" to='*'>More...</Link>
-                        </Card>                 
-                    )
-                })
-
+                <h1>Please Sign in</h1>
             )
         }
-
-
-
         </div>
     )
 }
